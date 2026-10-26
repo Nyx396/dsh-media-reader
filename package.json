@@ -1,6 +1,6 @@
 {
   "name": "dsh-media-reader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "视频与 GIF 原始附件导入、按时间抽帧及当前模型读取。",
@@ -19,7 +19,7 @@
   ],
   "engines": {
     "node": ">=20",
-    "dsh": "0.2.1-rc.2"
+    "dsh": "0.2.1-rc.3"
   },
   "license": "MIT",
   "dsh": {

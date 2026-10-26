@@ -1,7 +1,7 @@
 # DSH 视频 / GIF 读取
 
-非官方社区插件，包名 dsh-media-reader，版本 **1.0.0**。适配 Windows x64 / DeepSeek Harness Desktop **0.2.1-rc.2**。
-需要先安装 dsh-plugin-hub 1.0.0。
+非官方社区插件，包名 dsh-media-reader，版本 **1.0.1**。适配 Windows x64 / DeepSeek Harness Desktop **0.2.1-rc.3**。
+需要先安装 dsh-plugin-hub 1.0.1。
 
 导入本地或当前聊天中的原始视频/GIF，按时间抽帧，并通过 DSH 原生图片附件交给当前看图模型。默认 12 帧、最长边 960 像素。
 
@@ -17,13 +17,13 @@
 
 ## 使用与范围
 
-先安装 dsh-plugin-hub 1.0.0，再在输入框旁的方框加号中选择“视频 / GIF”。导入内容先进入草稿，检查后发送；模型工具 read_media 可读取本地路径或当前会话的原始附件。
+先安装 dsh-plugin-hub 1.0.1，再在输入框旁的方框加号中选择“视频 / GIF”。导入内容先进入草稿，检查后发送；模型工具 read_media 可读取本地路径或当前会话的原始附件。
 
 不转写声音。GIF 需要原始文件，已经被归一化成静态图片的旧附件不能恢复动画。抽样可能遗漏快速事件，可按时间点继续补抽。单源上限 512 MB / 24 小时，单次最多 24 帧 / 24 MB，并受 DSH 图片限制。文件访问仍遵循 DSH 原有策略。
 
 ## 源码依赖恢复
 
-普通用户下载 Releases 中完整的 dsh-media-reader-1.0.0-win-x64.zip 安装。公开源码保留插件 JavaScript 和 FFmpeg 许可/来源资料；FFmpeg EXE、DLL、对应源码压缩包及基础口袋 ZIP 从该固定版本安装包恢复，不作为网页源码文件重复上传。
+普通用户使用完整的 dsh-media-reader-1.0.1-win-x64.zip 安装。公开源码保留插件 JavaScript 和 FFmpeg 许可/来源资料；FFmpeg EXE、DLL、对应源码压缩包和扩展口袋 1.0.1 从该版本完整安装 ZIP 恢复，不作为网页源码文件重复上传。
 
 在源码根目录运行：
 
