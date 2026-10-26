@@ -1,8 +1,7 @@
 {
   "schemaVersion": 1,
-  "releaseFile": "dsh-media-reader-1.0.0-win-x64.zip",
-  "releaseSha256": "43f8ba1bc5c785dd9e5348f91da8fca5f60bce9e598251af33b79a2f3242860b",
-  "hubSha256": "de2c77862acd9095e0cccd9aa9fe609bfaf7d81ba1dd3ffac37de8c015570bfe",
+  "releaseFile": "dsh-media-reader-1.0.1-win-x64.zip",
+  "releaseSha256": "c521745d25525c9ba088c1193bcdb3e51b19ef0ee59879e63ce933b680c2343c",
   "files": [
     {
       "archivePath": "plugin/vendor/ffmpeg/bin/avcodec-62.dll",
@@ -77,16 +76,17 @@
       "bytes": 16907070
     },
     {
-      "archivePath": "dependencies/dsh-plugin-hub-1.0.0-win-x64.zip",
-      "relativePath": ".local-deps/dsh-plugin-hub-1.0.0-win-x64.zip",
-      "sha256": "de2c77862acd9095e0cccd9aa9fe609bfaf7d81ba1dd3ffac37de8c015570bfe",
-      "bytes": 22833
+      "archivePath": "dependencies/dsh-plugin-hub-1.0.1-win-x64.zip",
+      "relativePath": ".local-deps/dsh-plugin-hub-1.0.1-win-x64.zip",
+      "sha256": "f215bfc29b9e69e98476de2d51ee0ff67c4b1d1f07189e4ecb3395d1804c0f94",
+      "bytes": 19930
     },
     {
-      "archivePath": "dependencies/dsh-plugin-hub-1.0.0-win-x64.zip.sha256.txt",
-      "relativePath": ".local-deps/dsh-plugin-hub-1.0.0-win-x64.zip.sha256.txt",
-      "sha256": "7a8f1bc03f6aef4db96dec191c361217967f9a0bbd1ad2c5f13799649d4c154e",
+      "archivePath": "dependencies/dsh-plugin-hub-1.0.1-win-x64.zip.sha256.txt",
+      "relativePath": ".local-deps/dsh-plugin-hub-1.0.1-win-x64.zip.sha256.txt",
+      "sha256": "aa49aca94373349c921cdcf678a3a0ff1bce10b234157b5804c28ad6d82db07e",
       "bytes": 99
     }
-  ]
+  ],
+  "note": "Restore immutable FFmpeg payload and the matched rc.3 Hub dependency from this installation ZIP."
 }
