@@ -301,22 +301,22 @@ function Assert-MediaPluginSource($Environment) {
 function Assert-MediaHostVersion($Environment) {
     $global:LASTEXITCODE = 0
     $versionOutput = (& $Environment.Cli --version 2>&1 | Out-String).Trim()
-    if ($LASTEXITCODE -ne 0 -or $versionOutput -notmatch '(?m)^0\.2\.1-rc\.2\s*$') {
-        throw ('This release requires DSH 0.2.1-rc.2. Detected CLI output: ' + $versionOutput)
+    if ($LASTEXITCODE -ne 0 -or $versionOutput -notmatch '(?m)^0\.2\.1-rc\.3\s*$') {
+        throw ('This release requires DSH 0.2.1-rc.3. Detected CLI output: ' + $versionOutput)
     }
-    Write-Host 'DSH version: 0.2.1-rc.2'
+    Write-Host 'DSH version: 0.2.1-rc.3'
 }
 
 function Assert-MediaHubDependency($Environment, $Manifest) {
     $hubName = 'dsh-plugin-hub'
     if (-not $Manifest.dependencies -or -not $Manifest.dependencies.PSObject.Properties[$hubName] -or @($Manifest.dsh.profile.bundles) -notcontains $hubName) {
-        throw 'Required dsh-plugin-hub is missing. Unzip dependencies\dsh-plugin-hub-1.0.0-win-x64.zip, run its installer first, then run this installer again. Existing hub settings are not changed.'
+        throw 'Required dsh-plugin-hub is missing. Unzip dependencies\dsh-plugin-hub-1.0.1-win-x64.zip, run its installer first, then run this installer again. Existing hub settings are not changed.'
     }
     $hubManifestPath = Join-Path $Environment.ProfileDir ('node_modules\' + $hubName + '\package.json')
     if (-not (Test-Path -LiteralPath $hubManifestPath -PathType Leaf)) { throw 'dsh-plugin-hub is registered but its installed package cannot be read. Repair the hub installation first.' }
     $hub = Read-MediaJson $hubManifestPath
-    if ($hub.name -ne $hubName -or $hub.version -ne '1.0.0') { throw ('This release requires dsh-plugin-hub 1.0.0. Found: ' + $hub.version + '. No hub downgrade or replacement was attempted.') }
-    Write-Host 'Extension pocket dependency: dsh-plugin-hub 1.0.0 ready'
+    if ($hub.name -ne $hubName -or $hub.version -ne '1.0.1') { throw ('This release requires dsh-plugin-hub 1.0.1. Found: ' + $hub.version + '. No hub downgrade or replacement was attempted.') }
+    Write-Host 'Extension pocket dependency: dsh-plugin-hub 1.0.1 ready'
 }
 
 function Invoke-MediaDeployment {
@@ -372,7 +372,7 @@ function Invoke-MediaDeployment {
             $registered = Read-MediaJson (Join-Path $environment.NodeLink 'package.json')
             if ($registered.name -ne $script:MediaPackageName -or $registered.version -ne $self.version) { throw 'The installed package could not be verified through the profile link.' }
         } else {
-            Invoke-MediaCli $environment @('plugin', '--profile', $environment.Profile, 'remove', $script:MediaPackageName, '--offline', '--ignore-scripts')
+            Invoke-MediaCli $environment @('plugin', '--profile', $environment.Profile, 'remove', $script:MediaPackageName)
             $after = Read-MediaJson $environment.Manifest
             if (($after.dependencies -and $after.dependencies.PSObject.Properties[$script:MediaPackageName]) -or @($after.dsh.profile.bundles) -contains $script:MediaPackageName) { throw 'DSH did not remove the plugin registration.' }
         }
